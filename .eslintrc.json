@@ -6,10 +6,16 @@
      "jest": true
   },
   "rules": {
+    "indent": "off",
     "no-restricted-syntax": [
       "error",
       "LabeledStatement",
       "WithStatement"
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
     ]
   }
 }

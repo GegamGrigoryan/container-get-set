@@ -1,6 +1,30 @@
-// TODO: write your code here
-import sum from './basic';
+export default class Team {
+    constructor(name) {
+        this.name = name;
+        this.members = new Set();
+    }
 
-console.log('worked');
+    add(character) {
+        if (this.members.has(character)) {
+            throw new Error(`${character} already exists in the team,we kick nim`);
+        } else {
+            this.members.add(character);
+        }
+    }
 
-console.log(sum([1, 2]));
+    addAll(...character) {
+        for (const char of character) {
+            if (this.members.has(char)) {
+                this.members.delete(...char);
+                // throw new Error(`${char} already exists in the team,we kick nim`);
+            } else {
+                this.members.add(char);
+            }
+        }
+    }
+
+    toArray() {
+        const characterArr = [...this.members];
+        return characterArr;
+    }
+}
